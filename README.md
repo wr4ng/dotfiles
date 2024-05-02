@@ -10,3 +10,16 @@ When adding new files (or setting up my dotfiles), place the repo at `$HOME/dotf
 stow .
 ```
 to generate the symlinks. Anything in `.stow-local-ignore` is ignored (like `.git` and `README.md` etc.).
+## zsh
+Configuration in `.zshrc`. I'm using `oh-my-zsh`. For installing see: https://ohmyz.sh/.
+
+Installation of `oh-my-zsh` plugins:
+```shell
+# zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting   
+
+# zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions       
+```
+
+Also using `starship` prompt. For installation see: https://starship.rs/. Config is saved in `.config/starship.toml`
