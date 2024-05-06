@@ -59,12 +59,13 @@ export EDITOR="code -w"
 # fi
 
 # exa
+alias ls="eza -lh --icons --group-directories-first --sort type --color=always"
 
 # Aliases for fzf git scripts
 alias fzlog="~/dotfiles/scripts/fzlog.sh"
 alias fzbranch="~/dotfiles/scripts/fzbranch.sh"
 
-export EXA_COLORS="\
+export EZA_COLORS="\
 uu=36:\
 gu=37:\
 sn=32:\

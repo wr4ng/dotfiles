@@ -23,3 +23,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 ```
 
 Also using `starship` prompt. For installation see: https://starship.rs/. Config is saved in `.config/starship.toml`
+
+I've aliased `ls` to `eza ...` with options for color and grouping. To install `eza` on arch:
+```shell
+sudo pacman -S eza
+```
