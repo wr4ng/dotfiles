@@ -1,0 +1,48 @@
+{
+    // Position TOP
+    "layer": "top",
+    "margin-bottom": 0,
+
+    // Position BOTTOM
+    // "position": "bottom",
+    // "margin-top": 0,
+    // "margin-bottom": 14,
+    
+    "margin-left": 0,
+    "margin-right": 0,    
+    "spacing": 0,
+
+    // Load Modules
+    "include": ["~/.config/waybar/modules.jsonc"],
+
+    // Modules Left
+    "modules-left": [
+        // "hyprland/window",
+        "custom/apps",
+        "custom/spotify"
+        // "hyprland/window"
+    ],
+
+    // Modules Center
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    // Modules Right    
+    "modules-right": [
+        "pulseaudio",
+        // START BT TOOGLE
+        "bluetooth",
+        // END BT TOOGLE
+        "backlight",
+        "battery", 
+        // START NETWORK TOOGLE
+        "network",
+        // END NETWORK TOOGLE
+        // START TRAY TOOGLE
+        "tray",
+        // END TRAY TOOGLE
+        "clock",
+        "custom/power"
+    ]
+}

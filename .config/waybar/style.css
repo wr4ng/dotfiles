@@ -1,0 +1,175 @@
+/* Import dracula colors */
+@import url("./colors.css");
+
+/* General  */
+* {
+    font-family: "Noto Sans", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    border: none;
+    border-radius: 0px;
+    color: @purple;
+}
+
+label:disabled,
+button:disabled {
+  color: inherit;
+  background-image: none;
+}
+
+/* Workspaces */
+#workspaces {
+    margin: 5px 1px 6px 1px;
+    padding: 0px 1px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 14px;
+}
+
+#workspaces button.persistent {
+    background: @background;
+    min-width: 10px;
+    color: white;
+}
+
+#workspaces button {
+    padding: 0px 5px;
+    margin: 4px 3px;
+    border-radius: 15px;
+    transition: all 0.3s ease-in-out;
+    color: white;
+    border: 2px solid transparent; 
+    background: @background;
+}
+
+#workspaces button.active {
+    /* background: @purple; */
+    border-radius: 15px;
+    min-width: 40px;
+    transition: all 0.3s ease-in-out;
+    color: white;
+    border: 2px solid @purple;
+}
+
+#workspaces button:hover {
+    background: @purple;
+    color: white;
+}
+
+/* #workspaces button.persistent {
+    background-color: wheat;
+    border: 1px solid lightcoral;
+    min-width: 10px;
+}
+
+#workspaces button {
+    padding: 5px;
+    color: @purple;
+    background-color: cyan;
+    margin-right: 5px;
+
+}
+
+#workspaces button.active {
+    border-style: ridge;
+    border-width: 1px;
+    background-color: #eb4d4b;
+    box-shadow: 0px 1px 1px 0px green;
+    border-radius: 10px 10px 10px 10px;
+
+}
+
+#workspaces button.focused {
+    color: peru;
+    background-color: purple;
+    border-radius: 10px;
+}
+
+#workspaces button.urgent {
+    color: yellow;
+    background: blue;
+    border-radius: 10px;
+} 
+
+#workspaces button:hover {
+    border-radius: 10px 10px 10px 10px;
+    background: red;
+    box-shadow: 1px 1px 1px 1px green;
+}*/
+
+
+/* Tooltips */
+tooltip {
+    border-radius: 10px;
+    background-color: @background;
+    opacity: 0.8;
+    padding: 10px;
+    margin: 0px;
+}
+
+tooltip label {
+    color: white;
+}
+
+#clock,
+#pulseaudio,
+#backlight,
+#network,
+#bluetooth,
+#battery {
+    background-color: @background;
+    font-size: 14px;
+    /* color: white; */
+    color: @purple;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 10px 15px 10px 0px;
+}
+
+
+#custom-power {
+    margin: 0px 20px 0px 0px;
+    padding: 0px;
+    font-size: 20px;
+    color: @purple;
+}
+
+#custom-spotify {
+    margin-right: 15px;
+}
+
+#bluetooth.off {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+
+@keyframes blink {
+    to {
+        background-color: @foreground;
+        color: black;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Tray */
+#tray {
+    margin-right: 10px;
+}
+
+#tray>.passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
