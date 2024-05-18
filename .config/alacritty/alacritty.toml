@@ -1,0 +1,30 @@
+# Import Dracula color scheme
+import = ["~/.config/alacritty/dracula.toml"]
+
+[window]
+opacity = 0.85 
+
+padding.x = 10
+padding.y = 10
+
+decorations = "Full"
+
+[font]
+# The normal (roman) font face to use.
+# Point size of the font.
+size = 12.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+# The bold font face.
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+# The italic font face.
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+

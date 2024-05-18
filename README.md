@@ -20,11 +20,15 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 # zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions       
+
+# powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-Also using `starship` prompt. For installation see: https://starship.rs/. Config is saved in `.config/starship.toml`
 
-I've aliased `ls` to `eza ...` with options for color and grouping. To install `eza` on arch:
+I've aliased `ls` to `eza ...` with options for color and grouping. Aliases `cd` to `zoxide` (using shell integration).
+
+Install packages used in `.zshrc`:
 ```shell
-sudo pacman -S eza
+sudo pacman -S eza ttf-jetbrains-mono-nerd alacritty zoxide
 ```

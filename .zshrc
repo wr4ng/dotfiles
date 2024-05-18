@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/home/wr4ng/.cargo/bin:$PATH
@@ -6,11 +13,7 @@ export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="dracula"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -38,6 +41,8 @@ plugins=(
     zsh-autosuggestions     # Code completion
     zsh-syntax-highlighting # Command syntax higlighting
     gh                      # Github cli
+    command-not-found
+    sudo
 )
 
 # Oh My Zsh
@@ -46,6 +51,8 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_DK.UTF-8
 export EDITOR="code -w"
+# Add alias for VS Code to start using wayland
+alias code='code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland'
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -59,28 +66,32 @@ export EDITOR="code -w"
 # fi
 
 # exa
-alias ls="eza -lh --icons --group-directories-first --sort type --color=always"
+alias ls="eza --icons --group-directories-first --sort type --color=always"
 
 # Aliases for fzf git scripts
 alias fzlog="~/dotfiles/scripts/fzlog.sh"
 alias fzbranch="~/dotfiles/scripts/fzbranch.sh"
 
-export EZA_COLORS="\
-uu=36:\
-gu=37:\
-sn=32:\
-sb=32:\
-da=34:\
-ur=34:\
-uw=35:\
-ux=36:\
-ue=36:\
-gr=34:\
-gw=35:\
-gx=36:\
-tr=34:\
-tw=35:\
-tx=36:"
+alias fzcd='cd $(fd --hidden --follow --type directory --type symlink | fzf)'
 
-# Starship prompt
-eval "$(starship init zsh)"
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
