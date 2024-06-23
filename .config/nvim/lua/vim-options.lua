@@ -9,5 +9,11 @@ vim.opt.shiftwidth = 4
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- wrapping
+vim.opt.wrap = false
+
+-- clipboard
+vim.opt.clipboard = "unnamedplus"
+
 -- keybindings
-vim.keymap.set("i", "jj", "<ESC>", { silent = true }) -- insert mode: jj goes to normal mode
+vim.keymap.set("i", "jj", "<ESC>", { desc = "exit insert mode", silent = true }) -- insert mode: jj goes to normal mode
