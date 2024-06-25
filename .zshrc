@@ -50,7 +50,7 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_DK.UTF-8
-export EDITOR="code -w"
+export EDITOR=nvim
 # Add alias for VS Code to start using wayland
 alias code='code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland'
 
