@@ -9,6 +9,7 @@ return {
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "telescope: live_grep" })
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "telescope: buffers" })
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "telescope: help_tags" })
+			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "telescope: diagnostics" })
 		end,
 	},
 	{
