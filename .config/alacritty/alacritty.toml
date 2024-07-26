@@ -2,12 +2,11 @@
 import = ["~/.config/alacritty/dracula.toml"]
 
 [window]
-opacity = 0.85 
-
 padding.x = 10
 padding.y = 10
 
 decorations = "Full"
+startup_mode = "Maximized"
 
 [font]
 # The normal (roman) font face to use.
