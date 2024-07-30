@@ -1,48 +1,143 @@
 {
-    // Position TOP
     "layer": "top",
-    "margin-bottom": 0,
-
-    // Position BOTTOM
-    // "position": "bottom",
-    // "margin-top": 0,
-    // "margin-bottom": 14,
-    
-    "margin-left": 0,
-    "margin-right": 0,    
-    "spacing": 0,
-
-    // Load Modules
-    "include": ["~/.config/waybar/modules.jsonc"],
-
-    // Modules Left
+    "position": "top",
+    "mode": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
     "modules-left": [
-        // "hyprland/window",
-        "custom/apps",
-        "custom/spotify"
-        // "hyprland/window"
-    ],
-
-    // Modules Center
-    "modules-center": [
+        "clock",
         "hyprland/workspaces"
     ],
-
-    // Modules Right    
+//    "modules-center": [
+//		//"hyprland/window"
+//	],
     "modules-right": [
-        "pulseaudio",
-        // START BT TOOGLE
-        "bluetooth",
-        // END BT TOOGLE
-        "backlight",
-        "battery", 
-        // START NETWORK TOOGLE
-        "network",
-        // END NETWORK TOOGLE
-        // START TRAY TOOGLE
         "tray",
-        // END TRAY TOOGLE
-        "clock",
-        "custom/power"
-    ]
+        "network",
+        "battery",
+        "backlight",
+		"bluetooth",
+        "pulseaudio",
+        "pulseaudio#microphone",
+		"custom/power"
+    ],
+
+    "hyprland/window": {
+        "format": "󰣇 {}"
+    },
+    
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{icon}"
+    },
+
+    "tray": {
+        "icon-size": 13,
+        "spacing": 10
+    },
+
+    "clock": {
+        "format": "{:%A    %B-%d-%Y    %H:%M:%S}",
+        "format-alt": "{:%A    %B-%d-%Y}",
+        "interval": 1,
+        "rotate": 0,
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#a6adc8'><b>{}</b></span>",
+                "weekdays": "<span color='#a6adc8'><b>{}</b></span>",
+                "today": "<span color='#a6adc8'><b>{}</b></span>",
+                "days": "<span color='#555869'><b>{}</b></span>"
+            }
+        }
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+		"reverse-scrolling": true,
+        "on-scroll-up": "brightnessctl --min-value=20 set 1%+",
+        "on-scroll-down": "brightnessctl --min-value=20 set 1%-",
+        "min-length": 6
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "tooltip": false,
+        "format-muted": "  Muted",
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute 0 toggle",
+       // "on-scroll-up": "pamixer -d 1",
+       // "on-scroll-down": "pamixer -i 1",
+        "scroll-step": 1,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["","", "", ""]
+        }
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "  Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 1
+    },
+
+    "network": {
+        "tooltip": true,
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀 ",
+        "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "󰖪 ",
+        "tooltip-format-disconnected": "Disconnected",
+        //"format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
+		"on-click": "nm-connection-editor",
+        "interval": 2
+    },
+
+	// Power Menu
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "wlogout --protocol layer-shell"
+    },
+	// Bluetooth
+    "bluetooth": {
+        "format-disabled": "󰂯 off",
+        "format-off": "",
+        "interval": 30,
+        "on-click": "blueman-manager",
+        "format-no-controller": ""
+    },
 }
