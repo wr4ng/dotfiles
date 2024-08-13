@@ -2,3 +2,7 @@ theme "dracula"
 pane_frames false
 copy_command "wl-copy" // wayland
 scrollback_editor "/usr/bin/vim"
+
+keybinds {
+	unbind "Ctrl h" // unbind Ctrl+h in all modes
+}
