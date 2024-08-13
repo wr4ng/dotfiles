@@ -7,6 +7,7 @@ padding.y = 10
 
 decorations = "Full"
 startup_mode = "Maximized"
+option_as_alt = "OnlyLeft"
 
 [font]
 # The normal (roman) font face to use.
@@ -27,3 +28,5 @@ style = "Bold"
 family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
+[selection]
+save_to_clipboard = true
