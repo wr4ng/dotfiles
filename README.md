@@ -1,5 +1,8 @@
 # My Dotfiles!
 
+## Applications:
+Terminal: `kitty`
+
 ## Stow
 I'm using `stow` to mange symlinks from `~/dotfiles` to their respective locations. Installing `stow` on arch (btw):
 ```shell
@@ -24,7 +27,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
-
 
 I've aliased `ls` to `eza ...` with options for color and grouping. Aliases `cd` to `zoxide` (using shell integration).
 
