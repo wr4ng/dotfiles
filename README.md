@@ -34,3 +34,4 @@ Install packages used in `.zshrc`:
 ```shell
 sudo pacman -S eza ttf-jetbrains-mono-nerd alacritty zoxide
 ```
+
