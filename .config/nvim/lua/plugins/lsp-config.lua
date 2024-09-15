@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "gopls" },
+				ensure_installed = { "lua_ls", "gopls", "clangd" },
 			})
 		end,
 	},
@@ -24,6 +24,12 @@ return {
 			})
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
+			})
+			lspconfig.clangd.setup({
+				capabilities = capabilities
+			})
+			lspconfig.jdtls.setup({
+				capabilities = capabilities
 			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "hover documentation" })
