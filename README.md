@@ -1,5 +1,7 @@
 # My Dotfiles!
 
+![screenshot of desktop](./img/screenshot.png)
+
 ## Applications:
 Terminal: `kitty`
 
