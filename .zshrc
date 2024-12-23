@@ -74,6 +74,8 @@ alias fzbranch="~/dotfiles/scripts/fzbranch.sh"
 
 alias fzcd='cd $(fd --hidden --follow --type directory --type symlink | fzf)'
 
+alias open="xdg-open"
+
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
