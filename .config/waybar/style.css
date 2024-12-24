@@ -5,6 +5,7 @@
 	min-height: 0;
 	color: #bd93f9;
 	min-height: 0;
+	background-color: transparent;
 }
 
 window#waybar {

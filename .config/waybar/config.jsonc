@@ -28,7 +28,7 @@
         "custom/power"
     ],
     "hyprland/workspaces": {
-        "format": "{icon}",
+        "format": "{icon} {id}",
         "format-icons": {
             "active": "",
             "default": ""

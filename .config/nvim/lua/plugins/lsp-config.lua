@@ -34,6 +34,9 @@ return {
 			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities
 			})
+			lspconfig.nil_ls.setup({
+				capabilities = capabilities
+			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "hover documentation" })
 			vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { desc = "rename symbol" })
