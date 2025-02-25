@@ -65,15 +65,8 @@ alias code='code --enable-features=UseOzonePlatform,WaylandWindowDecorations --o
 #   export EDITOR='mvim'
 # fi
 
-# exa
+# aliases
 alias ls="eza --icons --group-directories-first --sort type --color=always"
-
-# Aliases for fzf git scripts
-alias fzlog="~/dotfiles/scripts/fzlog.sh"
-alias fzbranch="~/dotfiles/scripts/fzbranch.sh"
-
-alias fzcd='cd $(fd --hidden --follow --type directory --type symlink | fzf)'
-
 alias open="xdg-open"
 
 # History
