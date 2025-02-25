@@ -15,7 +15,8 @@ vim.opt.wrap = false
 vim.opt.breakindent = true
 
 -- options from kickstart.nvim
-vim.g.have_nerd_font = true
+vim.opt.termguicolors = false
+vim.g.have_nerd_font = false
 vim.opt.mouse = "a"
 vim.opt.showmode = false
 vim.opt.undofile = true

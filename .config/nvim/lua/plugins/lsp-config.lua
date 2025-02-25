@@ -2,38 +2,36 @@ return {
 	{
 		"williamboman/mason.nvim",
 		config = function()
-			require("mason").setup()
+			require("mason").setup({
+				ui = {
+					icons = {
+						package_installed = "✓",
+						package_pending = "➜",
+						package_uninstalled = "✗",
+					},
+				},
+			})
 		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "gopls", "clangd" },
+				ensure_installed = { "lua_ls", "gopls", "clangd", "rust_analyzer", "ts_ls", "jdtls" },
 			})
 		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+			local lsps = { "lua_ls", "gopls", "clangd", "rust_analyzer", "ts_ls", "jdtls" }
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.gopls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.clangd.setup({
-				capabilities = capabilities
-			})
-			lspconfig.jdtls.setup({
-				capabilities = capabilities
-			})
-			lspconfig.rust_analyzer.setup({
-				capabilities = capabilities
-			})
+			for _, server in pairs(lsps) do
+				lspconfig[server].setup({
+					capabilities = capabilities,
+				})
+			end
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "hover documentation" })
 			vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { desc = "rename symbol" })
