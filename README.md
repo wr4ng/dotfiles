@@ -37,3 +37,9 @@ Install packages used in `.zshrc`:
 sudo pacman -S eza ttf-jetbrains-mono-nerd alacritty zoxide
 ```
 
+TODO: Determine neovim dependencies
+## Neovim
+`nvim` dependencies:
+```shell
+paru -S ripgrep fd
+```

@@ -84,6 +84,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- vim.opt.clipboard = "unnamedplus"
 vim.keymap.set("n", '<leader>y', '"+y', { noremap = true, silent = true, desc = 'yank to clipboard' })
 vim.keymap.set({"v", "x"}, '<leader>y', '"+y', { noremap = true, silent = true, desc = 'yank to clipboard' })
-vim.keymap.set({"n", "v", "x"}, '<C-a>', 'gg0vG$', { noremap = true, silent = true, desc = 'select all' })
+--vim.keymap.set({"n", "v", "x"}, '<C-a>', 'gg0vG$', { noremap = true, silent = true, desc = 'select all' })
 vim.keymap.set({'n', 'v', 'x'}, '<leader>p', '"+p', { noremap = true, silent = true, desc = 'paste from clipboard' })
 vim.keymap.set('i', '<C-p>', '<C-r>+', { noremap = true, silent = true, desc = 'paste from clipboard from within insert mode' })
