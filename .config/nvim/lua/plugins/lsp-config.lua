@@ -24,7 +24,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			local lsps = { "lua_ls", "gopls", "clangd", "rust_analyzer", "ts_ls", "jdtls" }
+			local lsps = { "lua_ls", "gopls", "clangd", "rust_analyzer", "ts_ls", "jdtls", "svelte" }
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 			for _, server in pairs(lsps) do
